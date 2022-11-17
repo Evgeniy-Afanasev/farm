@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+		
+		<title>{{title}}</title>
+		
+		<style>
+			div{
+				border: 1px solid black;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg">
+					<h2>{{header}}</h2>
+					<table border='1px'>
+						<tr>
+							<td><b>Расход</b></td>
+							<td><b>Вакуум</b></td>
+							<td><b>Дата</b></td>
+						</tr>	
+						{% for item in data %}
+						<tr>
+							<td>{{item[1]}}</td>
+							<td>{{item[2]}}</td>
+							<td>{{item[3]}}</td>
+						</tr>	
+						{% endfor %}
+					</table>
+				</div>
+				<div class="col-lg">
+					<h3>Графики</h3>
+					<img src= {{status_plot}} alt="my plot">
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>
