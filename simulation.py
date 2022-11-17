@@ -2,9 +2,9 @@ from datetime import date, time, timedelta, datetime
 import time
 from random import randint
 import pyodbc
+import os
 
-
-con_string = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:\Users\user\Desktop\web\farm.accdb;'
+con_string = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'+rf'DBQ={os.path.dirname(os.path.abspath(__file__))}\farm.accdb;'
 conn = pyodbc.connect(con_string)
 
 def insert(id):

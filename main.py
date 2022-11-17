@@ -4,15 +4,17 @@ import matplotlib as mpl
 mpl.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
+import os
 
-app = Flask(__name__, static_folder='C:\\Users\\user\\Desktop\\web\\templates')
+
+app = Flask(__name__, static_folder=rf'{os.path.dirname(os.path.abspath(__file__))}\templates')
 
 msa_drivers = [x for x in pyodbc.drivers() if 'ACCESS' in x.upper()]
 print(f'MS-Access Drivers : {msa_drivers}')
 
 #Попытка установки соединения с БД
 try:
-    con_string = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:\Users\user\Desktop\web\farm.accdb;'
+    con_string = r'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};'+rf'DBQ={os.path.dirname(os.path.abspath(__file__))}\farm.accdb;'
     conn = pyodbc.connect(con_string)
     print("Connected To Database")
 
